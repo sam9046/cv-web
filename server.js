@@ -3,16 +3,16 @@
  * @type {*|exports|module.exports}
  */
 var httpProxy = require('http-proxy'),
-    http = require('http');
+    http = require('http'),
+    express = require('express');
 
+var app = express();
 var proxy = httpProxy.createProxyServer();
 
 // Set up proxy server
-httpProxy.createProxyServer({target:'http://localhost:9005/angular2'}).listen(8000);
+httpProxy.createProxyServer({target:'http://localhost:9005'}).listen(8000);
 
-// Create server
-http.createServer(function (req, res) {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.write('request successfully proxied!' + '\n' + JSON.stringify(req.headers, true, 2));
-    res.end();
-}).listen(9005);
+app.use('/', express.static(__dirname + '/views'));
+app.listen(9005, function() {
+    console.log('app listening on port 9005');
+});
