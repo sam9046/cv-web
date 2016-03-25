@@ -19,5 +19,11 @@
   "dependencies": {
     "express": "^4.13.4",
     "http-proxy": "^1.13.2"
+  },
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "require-dir": "^0.3.0",
+    "wiredep": "^4.0.0"
   }
 }

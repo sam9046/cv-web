@@ -13,7 +13,7 @@ var proxy = httpProxy.createProxyServer();
 httpProxy.createProxyServer({target:'http://localhost:9005'}).listen(8000);
 
 app.use('/', express.static(__dirname + '/views'));
-app.use('/angular2', express.static(__dirname + '/views/angular2'));
+app.use('/angular', express.static(__dirname + '/dist'));
 app.listen(9005, function() {
     console.log('app listening on port 9005');
 });
