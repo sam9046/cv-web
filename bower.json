@@ -1,0 +1,19 @@
+{
+  "name": "cv-web",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Sam Cackett"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/sam9046/cv-web",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
