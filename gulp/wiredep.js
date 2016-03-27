@@ -1,8 +1,10 @@
+'use strict';
+
 var wiredep = require('wiredep').stream;
 var gulp = require('gulp');
 
 gulp.task('bower', function () {
-    gulp.src('./views/angular2/index.html')
+    return gulp.src('./views/index.html')
         .pipe(wiredep())
-        .pipe(gulp.dest('./dist/'));
+        .pipe(gulp.dest('./\.tmp'));
 });

@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp');
 
 var requireDir = require('require-dir');
@@ -7,12 +9,11 @@ var del = require('del');
 
 gulp.task('clean', function () {
     return del([
-        'dist'
+        'dist',
+        '.tmp'
     ]);
 });
 
 gulp.task('default', ['clean'], function() {
-
-    gulp.start('bower');
-    // place code for your default task here
+    gulp.start('sass', 'autoprefixer', 'bower', 'inject-index');
 });

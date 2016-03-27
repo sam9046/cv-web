@@ -7,13 +7,15 @@ var httpProxy = require('http-proxy'),
     express = require('express');
 
 var app = express();
-var proxy = httpProxy.createProxyServer();
+//var proxy = httpProxy.createProxyServer();
+//
+//// Set up proxy server
+//httpProxy.createProxyServer({target:'http://localhost:9005'}).listen(8000);
 
-// Set up proxy server
-httpProxy.createProxyServer({target:'http://localhost:9005'}).listen(8000);
-
-app.use('/', express.static(__dirname + '/views'));
-app.use('/angular', express.static(__dirname + '/dist'));
+app.use('/', express.static(__dirname + '/dist'));
+app.use('/dist', express.static(__dirname + '/dist'));
+app.use('/public', express.static(__dirname + '/public'));
+//app.use('/angular', express.static(__dirname + '/dist'));
 // TODO: Dev mode only. Or compile to dist
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.listen(9005, function() {
